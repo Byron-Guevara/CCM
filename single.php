@@ -1,16 +1,12 @@
-<?php get_template_part('template/header'); ?>
+<?php
+    get_header();
 
-<div class="contenedor-page">
-    <?php
-        if (have_posts()):
+    if (have_posts()):
         while (have_posts()):
             the_post();
-        the_content();
+            the_content();
         endwhile;
-        endif;
-    ?>
-</div>
+    endif;
 
-<?php
-get_template_part('template/footer');
+    get_footer();
 ?>
