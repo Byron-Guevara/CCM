@@ -1,5 +1,4 @@
 <?php
-include_once ('widgets/icons-social-media-header.php');
 
 function ccm_setup_theme_supported_features()
 {
@@ -57,16 +56,151 @@ function ccm_theme_name_scripts()
 {
     wp_deregister_script('jquery');
     wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js', array(), null, true);
+    wp_enqueue_style('generales', get_template_directory_uri() . '/css/generales.css', array(), filemtime(get_stylesheet_directory() . '/css/generales.css'), 'all');
     wp_enqueue_style('animate', get_template_directory_uri() . '/css/animate.css', array(), filemtime(get_stylesheet_directory() . '/css/animate.css'), 'all');
-
-    if (is_front_page()){
-        wp_enqueue_style('home', get_template_directory_uri() . '/css/home.css', array(), filemtime(get_stylesheet_directory() . '/css/home.css'), 'all');
-        /*
-        wp_enqueue_style('owl.carousel.min', get_template_directory_uri() . '/css/owl.carousel.min.css', array(), '1.1', 'all');
-        wp_enqueue_style('owl.theme.default.min', get_template_directory_uri() . '/css/owl.theme.default.min.css', array(), '1.1', 'all');
-        wp_enqueue_script('owl.carousel.min.js', get_template_directory_uri().'/js/owl.carousel.min.js', array('jquery'), get_stylesheet_directory() . '/js/owl.carousel.min.js', false);
-        */
-    }
-    
 }
 add_action('wp_enqueue_scripts', 'ccm_theme_name_scripts');
+
+
+//BLOG
+add_action( 'init', 'ccm_post_type_blog' );
+function ccm_post_type_blog() {
+
+    $labels = array(
+    'name'               => __( 'Blog' ),
+    'singular_name'      => __( 'Blog' ),
+    'add_new'            => __( 'Agregar Nuevo' ),
+    'add_new_item'       => __( 'Agregar Nuevo' ),
+    'edit_item'          => __( 'Editar' ),
+    'new_item'           => __( 'Nuevo' ),
+    'all_items'          => __( 'Todos' ),
+    'view_item'          => __( 'Ver' ),
+    'search_items'       => __( 'Buscar' ),
+    'not_found' => 'No se han encontrado resultados',
+		'not_found_in_trash' => 'No se han encontrado resultados en la papelera'
+    );
+
+    $args = array(
+    'labels'            => $labels,
+    'description'       => 'Información especifica',
+    'public'            => true,
+    'menu_position'     => 5,
+    'show_in_rest'      => true,
+    'supports'          => array( 'title', 'editor', 'page-attributes', 'editor', 'thumbnail', 'excerpt', 'comments'),
+    'has_archive'       => true,
+    'show_in_admin_bar' => true,
+    'show_in_nav_menus' => true,
+    'query_var'         => 'blog'
+    );
+
+    register_post_type( 'blog', $args);
+
+}
+function taxonomias_blog() {  
+    register_taxonomy(  
+      'blog_categorias',  //The name of the taxonomy. Name should be in slug form (must not contain capital letters or spaces). 
+      'blog',        //post type name
+        array(  
+            'hierarchical' => true,  
+            'label' => 'Categoría',  //Display name
+            'query_var' => true,
+            'rewrite' => array(
+              'slug' => 'slug_blog', // This controls the base slug that will display before each term
+              'with_front' => false // Don't display the category base before 
+            )
+        )  
+    );  
+}  
+add_action( 'init', 'taxonomias_blog');
+
+//WEBINAR
+add_action( 'init', 'ccm_post_type_webinar' );
+function ccm_post_type_webinar() {
+
+    $labels = array(
+    'name'               => __( 'Webinar' ),
+    'singular_name'      => __( 'Webinar' ),
+    'add_new'            => __( 'Agregar Nuevo' ),
+    'add_new_item'       => __( 'Agregar Nuevo' ),
+    'edit_item'          => __( 'Editar' ),
+    'new_item'           => __( 'Nuevo' ),
+    'all_items'          => __( 'Todos' ),
+    'view_item'          => __( 'Ver' ),
+    'search_items'       => __( 'Buscar' ),
+    'not_found' => 'No se han encontrado resultados',
+		'not_found_in_trash' => 'No se han encontrado resultados en la papelera'
+    );
+
+    $args = array(
+    'labels'            => $labels,
+    'description'       => 'Información especifica',
+    'public'            => true,
+    'menu_position'     => 5,
+    'show_in_rest'      => true,
+    'supports'          => array( 'title', 'editor', 'page-attributes', 'editor', 'thumbnail', 'excerpt', 'comments'),
+    'has_archive'       => true,
+    'show_in_admin_bar' => true,
+    'show_in_nav_menus' => true,
+    'query_var'         => 'webinar'
+    );
+
+    register_post_type( 'webinar', $args);
+
+}
+function taxonomias_webinar() {  
+    register_taxonomy(  
+      'webinar_categorias',  //The name of the taxonomy. Name should be in slug form (must not contain capital letters or spaces). 
+      'webinar',        //post type name
+        array(  
+            'hierarchical' => true,  
+            'label' => 'Categoría',  //Display name
+            'query_var' => true,
+            'rewrite' => array(
+              'slug' => 'slug_webinar', // This controls the base slug that will display before each term
+              'with_front' => false // Don't display the category base before 
+            )
+        )  
+    );  
+}  
+add_action( 'init', 'taxonomias_webinar');
+
+add_action('acf/init', 'my_acf_init_block_types');
+function my_acf_init_block_types() {
+
+    // Check function exists.
+    if( function_exists('acf_register_block_type') ) {
+
+        // Carrusel Blog.
+        acf_register_block_type(array(
+            'name'              => 'blog-carrusel',
+            'title'             => __('Blog Carrusel'),
+            'description'       => __('Blog Carrusel.'),
+            'render_template'   => 'blocks/blog-carrusel.php',
+            'category'          => 'ap-blocks',
+            'icon'              => 'format-gallery',
+            'keywords'          => array( 'blog-carrusel', 'quote' ),
+        ));
+
+        // Carrusel Videos.
+        acf_register_block_type(array(
+            'name'              => 'videos-carrusel',
+            'title'             => __('Videos Carrusel'),
+            'description'       => __('Videos Carrusel.'),
+            'render_template'   => 'blocks/videos-carrusel.php',
+            'category'          => 'ap-blocks',
+            'icon'              => 'format-gallery',
+            'keywords'          => array( 'videos-carrusel', 'quote' ),
+        ));
+
+    }
+}
+add_post_type_support( 'themes', 'thumbnail' );
+
+function get_excerpt( $count ) {
+    $excerpt = get_the_content();
+    $excerpt = strip_tags($excerpt);
+    $excerpt = substr($excerpt, 0, $count);
+    $excerpt = substr($excerpt, 0, strripos($excerpt, " "));
+    $excerpt = '<p>'.$excerpt.'...</p>';
+    return $excerpt;
+}

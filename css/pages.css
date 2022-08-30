@@ -1,0 +1,157 @@
+.contenedor-general-hero {
+  padding-top: 95px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.contenedor-general-hero .contenedor-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.contenedor-general-hero .contenedor-info .contenedor-banner {
+  width: 85%;
+  padding: 45px 0px;
+  position: relative;
+}
+.contenedor-general-hero .contenedor-info .contenedor-banner .contenedor-img {
+  width: 35%;
+  margin: 0 auto;
+}
+.contenedor-general-hero .contenedor-info .contenedor-banner .contenedor-img img {
+  width: 100%;
+  mix-blend-mode: overlay;
+}
+.contenedor-general-hero .contenedor-info .contenedor-banner .contenedor-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contenedor-general-hero .contenedor-info .contenedor-banner .contenedor-info .cont-info {
+  width: 80%;
+}
+.contenedor-general-hero .contenedor-info .contenedor-banner .contenedor-info .cont-info h3 {
+  color: white;
+  font-size: 56px;
+  text-transform: uppercase;
+  margin: 0;
+  text-align: center;
+}
+.contenedor-general-hero .contenedor-info .contenedor-banner .contenedor-info .cont-info p {
+  color: white;
+  text-align: center;
+  margin: 0;
+}
+
+.contenedor-wrapper-page {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.uagb-section__wrap .uagb-section__inner-wrap {
+  width: 60%;
+  max-width: unset;
+}
+
+.wp-block-columns {
+  margin-bottom: 0;
+}
+
+h2 {
+  color: #65ab3c;
+  text-transform: uppercase;
+  font-size: 50px;
+  line-height: 1;
+  font-weight: 300;
+}
+h2 strong {
+  font-weight: bold;
+}
+
+p strong {
+  color: #65ab3c;
+  font-weight: bold;
+}
+
+ol li, ul li {
+  margin-bottom: 7px;
+}
+ol li:last-child, ul li:last-child {
+  margin-bottom: 0;
+}
+ol li::marker, ul li::marker {
+  color: #65ab3c;
+  font-weight: bold;
+}
+
+.wp-block-gallery {
+  margin-top: 45px;
+}
+
+.wp-block-uagb-section {
+  overflow: hidden;
+}
+
+.wp-block-embed-youtube {
+  margin-bottom: 0;
+  position: relative;
+}
+.wp-block-embed-youtube .wp-block-embed__wrapper {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56%;
+}
+.wp-block-embed-youtube .wp-block-embed__wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 14px solid #0ac4cb;
+  border-radius: 25px;
+}
+.wp-block-embed-youtube::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -125px;
+  width: calc(100% + 250px);
+  height: 100%;
+  background-image: url(../img/cinta-metrica.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .uagb-section__wrap .uagb-section__inner-wrap {
+    width: 65%;
+  }
+}
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .uagb-section__wrap .uagb-section__inner-wrap {
+    width: 85%;
+    max-width: unset;
+  }
+  h2 {
+    font-size: 32px;
+  }
+  .contenedor-general-hero .contenedor-info .contenedor-banner .contenedor-img {
+    width: 100%;
+  }
+  .contenedor-general-hero .contenedor-info .contenedor-banner .contenedor-info .cont-info h3 {
+    font-size: 26px;
+  }
+  .wp-block-gallery {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

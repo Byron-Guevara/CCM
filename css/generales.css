@@ -1,0 +1,407 @@
+* {
+  box-sizing: content-box;
+  font-family: "Poppins";
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  color: #0d204b;
+}
+
+img {
+  display: block;
+}
+
+.wp-block-uagb-container.carrusel {
+  padding-left: 0;
+  padding-right: 0;
+}
+.wp-block-uagb-container.carrusel .uagb-container-inner-blocks-wrap {
+  padding-left: 5%;
+}
+
+.wp-block-button__link {
+  background: #347eff;
+  border: 1px solid transparent;
+  transition: all 0.3s;
+}
+.wp-block-button__link:hover {
+  background: white;
+  color: #347eff;
+  border-color: #347eff;
+}
+
+.wp-block-gallery {
+  margin: 0;
+}
+
+.contenedor-general-carrusel .contenedor-carrusel {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+.contenedor-general-carrusel .contenedor-carrusel .cont-item {
+  width: 100%;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.contenedor-general-carrusel .contenedor-carrusel .cont-item .cont-size {
+  height: 165px;
+  background: #002a5b;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.contenedor-general-carrusel .contenedor-carrusel .cont-item .cont-info {
+  background: transparent;
+  border-radius: 0 0 10px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s;
+}
+.contenedor-general-carrusel .contenedor-carrusel .cont-item .cont-info .info {
+  padding: 15px 25px 30px;
+  width: 100%;
+}
+.contenedor-general-carrusel .contenedor-carrusel .cont-item .cont-info .info p {
+  font-size: 14px;
+  color: #0d204b;
+  text-transform: uppercase;
+  margin: 0;
+  margin-bottom: 10px;
+}
+.contenedor-general-carrusel .contenedor-carrusel .cont-item .cont-info .info p strong {
+  color: #347eff;
+}
+.contenedor-general-carrusel .contenedor-carrusel .cont-item .cont-info .info span {
+  font-size: 12px;
+  color: white;
+  background: #0d204b;
+  padding: 5px 50px;
+  border-radius: 20px;
+  border: 1px solid #002a5b;
+  text-decoration: none;
+  opacity: 0;
+  transition: all 0.3s;
+  margin-top: 15px;
+}
+.contenedor-general-carrusel .contenedor-carrusel .cont-item video {
+  width: 100%;
+}
+.contenedor-general-carrusel .contenedor-carrusel .cont-item:hover .cont-info {
+  background: #347eff;
+}
+.contenedor-general-carrusel .contenedor-carrusel .cont-item:hover .cont-info .info p {
+  color: white;
+}
+.contenedor-general-carrusel .contenedor-carrusel .cont-item:hover .cont-info .info p strong {
+  color: white;
+}
+.contenedor-general-carrusel .contenedor-carrusel .cont-item:hover .cont-info .info span {
+  opacity: 1;
+}
+.contenedor-general-carrusel .contenedor-carrusel .owl-stage {
+  padding-left: 0 !important;
+}
+.contenedor-general-carrusel .contenedor-carrusel .owl-nav {
+  text-align: left;
+}
+.contenedor-general-carrusel .contenedor-carrusel .owl-nav button {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s;
+}
+.contenedor-general-carrusel .contenedor-carrusel .owl-nav button img {
+  width: 50%;
+  transition: all 0.3s;
+}
+.contenedor-general-carrusel .contenedor-carrusel .owl-nav button.owl-prev {
+  background: white;
+}
+.contenedor-general-carrusel .contenedor-carrusel .owl-nav button.owl-next {
+  background: #347eff;
+}
+.contenedor-general-carrusel .contenedor-carrusel .owl-nav button:hover img {
+  transform: scale(0.8);
+}
+
+/*
+.uagb-slick-carousel{
+    .single-item{
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        .slick-slide{
+            margin: 0 20px;
+            .cont-item{
+                width: 100%;
+                cursor: pointer;
+                text-decoration: none;
+                transition: all 0.3s;
+                .cont-size{
+                    height: 150px;
+                    background: #002a5b;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+                .cont-info{
+                    background: transparent;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    transition: all .3s;
+                    .info{
+                        padding: 15px 25px 30px;
+                        width: 100%;
+                        p{
+                            font-size: 12px;
+                            color: $azul;
+                            text-transform: uppercase;
+                            margin: 0;
+                            margin-bottom: 10px;
+                            strong{
+                                color: $azul_claro;
+                            }
+                        }
+                        span{
+                            font-size: 12px;
+                            color: white;
+                            background: $azul;
+                            padding: 5px 50px;
+                            border-radius: 20px;
+                            border: 1px solid #002a5b;
+                            text-decoration: none;
+                            opacity: 0;
+                            transition: all 0.3s;
+                            margin-top: 15px;
+                        }
+                    }
+                }
+                &:hover{
+                    .cont-info{
+                        background: $azul_claro;
+                        .info{
+                            p{
+                                color: white;
+                                strong{
+                                    color: white;
+                                }
+                            }
+                            span{
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.blog-carrusel{
+        padding-top: 0;
+    }
+}
+
+.flechas-links{
+    display: flex;
+	margin-top: 5px;
+    div{
+        height: 35px;
+        width: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: all .3s;
+        img{
+            width: 75%;
+            pointer-events: none;
+            user-select: none;
+        }
+        &:hover{
+            opacity: .5;
+        }
+    }
+}
+*/
+form p {
+  margin: 0;
+  color: white;
+}
+form label .wpcf7-form-control-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+form input[type=text], form input[type=num], form input[type=email], form textarea, form select {
+  outline: none;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid white;
+  padding: 8px 0;
+  color: white;
+  font-size: 16px;
+  width: 100%;
+}
+form input[type=text]::-webkit-input-placeholder, form input[type=num]::-webkit-input-placeholder, form input[type=email]::-webkit-input-placeholder, form textarea::-webkit-input-placeholder, form select::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+  color: white;
+}
+form input[type=text]:-moz-placeholder, form input[type=num]:-moz-placeholder, form input[type=email]:-moz-placeholder, form textarea:-moz-placeholder, form select:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: white;
+  opacity: 1;
+}
+form input[type=text]::-moz-placeholder, form input[type=num]::-moz-placeholder, form input[type=email]::-moz-placeholder, form textarea::-moz-placeholder, form select::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: white;
+  opacity: 1;
+}
+form input[type=text]:-ms-input-placeholder, form input[type=num]:-ms-input-placeholder, form input[type=email]:-ms-input-placeholder, form textarea:-ms-input-placeholder, form select:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: white;
+}
+form textarea {
+  height: 115px;
+}
+form input[type=submit] {
+  padding: 15px 0;
+  width: 100%;
+  color: #347eff;
+  background: white;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  text-decoration: none;
+  outline: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 0 auto;
+  transition: all 0.3s;
+}
+form input[type=submit]:hover {
+  background: #347eff;
+  color: white;
+  border-color: white;
+}
+form input[type=submit].estilo2 {
+  background: #5ee8ff;
+  color: #0d204b;
+  width: auto;
+  padding: 10px 45px;
+  border-radius: 30px;
+}
+form input[type=submit].estilo2:hover {
+  background: #0d204b;
+  color: #5ee8ff;
+  border-color: #5ee8ff;
+}
+form .wpcf7-form-control-wrap {
+  display: block;
+}
+
+h1 {
+  font-size: 50px;
+  line-height: 1;
+  margin: 0;
+}
+
+h2 {
+  margin: 0;
+  margin-bottom: 10px;
+  font-size: 40px;
+  line-height: 1;
+}
+
+h3 {
+  margin: 0;
+  margin-bottom: 10px;
+  font-size: 30px;
+  line-height: 1;
+}
+
+ul {
+  padding-left: 15px;
+}
+ul li {
+  margin-bottom: 20px;
+}
+ul li:last-child {
+  margin-bottom: 0;
+}
+
+s {
+  text-decoration: underline;
+}
+
+figure {
+  margin: 0 !important;
+}
+
+.sin-margen {
+  margin: 0;
+}
+.sin-margen .wp-block-columns {
+  margin: 0;
+}
+
+div.wpcf7-validation-errors,
+div.wpcf7-acceptance-missing,
+div.wpcf7-response-output {
+  border: none !important;
+  padding: 0 !important;
+  color: white !important;
+  margin: 0 !important;
+  font-size: 12px !important;
+  text-decoration: underline !important;
+}
+
+div.wpcf7-mail-sent-ok {
+  border-bottom: 2px solid white;
+}
+
+span.wpcf7-not-valid-tip {
+  margin-top: 5px;
+  padding-left: 5px;
+  color: white;
+  border-left: 1px solid red;
+  font-size: 12px;
+  line-height: 12px;
+}
+
+/* Osc */
+.osc div.wpcf7-validation-errors,
+.osc div.wpcf7-acceptance-missing,
+.osc div.wpcf7-response-output {
+  color: #6e6e6e !important;
+}
+
+.osc div.wpcf7-mail-sent-ok {
+  border-bottom: 2px solid #6e6e6e !important;
+}
+
+.osc span.wpcf7-not-valid-tip {
+  color: #6e6e6e !important;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .wp-block-uagb-container.carrusel .uagb-container-inner-blocks-wrap {
+    padding-right: 5%;
+  }
+  h1 {
+    font-size: 37px;
+  }
+  h2 {
+    font-size: 32px;
+  }
+  h3 {
+    font-size: 24px;
+  }
+}
