@@ -48,6 +48,64 @@ function ccm_menu()
     register_nav_menus(array(
         'header_menu' => __('Header Menu', 'CCM'),
     ));
+
+    register_sidebar(
+        array(
+            'name'          => __( 'Footer Columna 1', 'ccm' ),
+            'id'            => 'footer-1',
+            'before_widget' => '<div id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h3 class="widget-title">',
+            'after_title'   => '</h3>'
+        )
+    );
+
+    register_sidebar(
+        array(
+            'name'          => __( 'Footer Columna 2', 'ccm' ),
+            'id'            => 'footer-2',
+            'before_widget' => '<div id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h3 class="widget-title">',
+            'after_title'   => '</h3>',
+        )
+    );
+
+    register_sidebar(
+        array(
+            'name'          => __( 'Footer Columna 3', 'ccm' ),
+            'id'            => 'footer-3',
+            'before_widget' => '<div id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h3 class="widget-title">',
+            'after_title'   => '</h3>',
+        )
+    );
+
+
+    register_sidebar(
+        array(
+            'name'          => __( 'Footer Columna 4', 'ccm' ),
+            'id'            => 'footer-4',
+            'before_widget' => '<div id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h3 class="widget-title">',
+            'after_title'   => '</h3>',
+        )
+    );
+
+    register_sidebar(
+        array(
+            'name'          => __( 'Footer base', 'ccm' ),
+            'id'            => 'footer-base',
+            'before_widget' => '<div id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h3 class="widget-title">',
+            'after_title'   => '</h3>',
+        )
+    );
+
+
 }
 add_action('widgets_init', 'ccm_menu');
 
@@ -192,7 +250,22 @@ function my_acf_init_block_types() {
             'keywords'          => array( 'videos-carrusel', 'quote' ),
         ));
 
+<<<<<<< HEAD
     }
+=======
+    // generals
+    wp_enqueue_style('generals', get_template_directory_uri() . '/css/generals.css', array(), '1.1', 'all');
+
+    if (is_front_page()){
+        // wp_enqueue_style('home', get_template_directory_uri() . '/css/home.css', array(), filemtime(get_stylesheet_directory() . '/css/home.css'), 'all');
+        /*
+        wp_enqueue_style('owl.carousel.min', get_template_directory_uri() . '/css/owl.carousel.min.css', array(), '1.1', 'all');
+        wp_enqueue_style('owl.theme.default.min', get_template_directory_uri() . '/css/owl.theme.default.min.css', array(), '1.1', 'all');
+        wp_enqueue_script('owl.carousel.min.js', get_template_directory_uri().'/js/owl.carousel.min.js', array('jquery'), get_stylesheet_directory() . '/js/owl.carousel.min.js', false);
+        */
+    }
+
+>>>>>>> ff23a202443885ceb97e00c37f0a3afabebea7c4
 }
 add_post_type_support( 'themes', 'thumbnail' );
 

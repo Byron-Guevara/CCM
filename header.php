@@ -8,3 +8,15 @@
 </head>
 
 <body <?php body_class(); ?>>
+
+header
+<header>
+    <div class="container">
+        <div class="logo-img">
+            <?php echo get_custom_logo()?>
+        </div>
+        <div class="nav_menu">
+            <?php wp_nav_menu( array( 'theme_location' => 'header_menu' ) ); ?>
+        </div>
+    </div>
+</header>
