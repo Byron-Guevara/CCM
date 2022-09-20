@@ -8,15 +8,26 @@
 </head>
 
 <body <?php body_class(); ?>>
+<div class="secondary-menu-cont">
 
-header
-<header>
+</div>
+
+<header class="main-header">
     <div class="container">
         <div class="logo-img">
             <?php echo get_custom_logo()?>
         </div>
         <div class="nav_menu">
-            <?php wp_nav_menu( array( 'theme_location' => 'header_menu' ) ); ?>
+            <?php
+            wp_nav_menu( array(
+                'theme_location' => 'header_menu' ,
+                'menu_class' => 'menu',
+                'container_class' => 'menu_container')
+            );
+            ?>
+        </div>
+        <div class="secondary-menu-button">
+            <i></i><i></i><i></i>
         </div>
     </div>
 </header>

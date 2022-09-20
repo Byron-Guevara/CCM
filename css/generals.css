@@ -54,22 +54,36 @@
   font-style: normal;
   font-display: swap;
 }
-header {
+.secondary-menu-cont {
+  height: 300px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: red;
+  display: none;
+}
+
+.main-header {
   padding: 10px 60px;
 }
-header .container {
+.main-header .container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
 }
-header .container .logo-img .custom-logo {
+.main-header .container .logo-img .custom-logo {
   max-width: 100px;
   height: auto;
 }
-header .container .nav_menu {
+.main-header .container .nav_menu {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -79,14 +93,14 @@ header .container .nav_menu {
   margin: 10px;
   margin-left: 30px;
 }
-header .container .nav_menu .menu ul {
+.main-header .container .nav_menu .menu_container .menu {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   padding: 0;
   margin: 0;
 }
-header .container .nav_menu .menu ul li {
+.main-header .container .nav_menu .menu_container .menu li {
   list-style: none;
   padding: 5px 15px;
   height: 13px;
@@ -97,13 +111,53 @@ header .container .nav_menu .menu ul li {
       -ms-flex-align: center;
           align-items: center;
 }
-header .container .nav_menu .menu ul li:not(:last-child) {
+.main-header .container .nav_menu .menu_container .menu li:not(:last-child) {
   border-right: 1.5px solid black;
 }
-header .container .nav_menu .menu ul li a {
+.main-header .container .nav_menu .menu_container .menu li a {
   font-size: 14px;
   text-decoration: none;
   color: #030303;
+  cursor: pointer;
+}
+.main-header .container .secondary-menu-button {
+  width: 30px;
+  position: absolute;
+  right: 0;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+  background-color: beige;
+}
+.main-header .container .secondary-menu-button i {
+  background-color: black;
+  content: "";
+  display: block;
+  height: 3px;
+  width: 100%;
+  margin-left: auto;
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
+}
+.main-header .container .secondary-menu-button i:nth-child(1) {
+  width: 100%;
+}
+.main-header .container .secondary-menu-button i:nth-child(2) {
+  margin-top: 6px;
+  margin-bottom: 6px;
+  width: 70%;
+}
+.main-header .container .secondary-menu-button i:nth-child(3) {
+  width: 50%;
+}
+.main-header .container .secondary-menu-button.active i {
+  width: 100%;
+}
+.main-header .container .secondary-menu-button.active i:nth-child(2) {
+  width: 100%;
+}
+.main-header .container .secondary-menu-button.active i:nth-child(3) {
+  width: 100%;
 }
 
 footer {
@@ -141,6 +195,6 @@ footer .columns .column .widget_nav_menu .menu li a {
 }
 
 .container {
-  max-width: 1280px;
+  max-width: 1140px;
   margin: 0 auto;
 }
