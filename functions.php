@@ -49,6 +49,7 @@ function ccm_menu()
         'header_menu' => __('Header Menu', 'CCM'),
     ));
 
+
     register_sidebar(
         array(
             'name'          => __( 'Footer Columna 1', 'ccm' ),
@@ -114,6 +115,7 @@ function ccm_theme_name_scripts()
 {
     wp_deregister_script('jquery');
     wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js', array(), null, true);
+    wp_enqueue_script('custom.js', get_template_directory_uri().'/js/custom.js', array('jquery'), get_stylesheet_directory() . '/js/custom.js', false);
     wp_enqueue_style('generales', get_template_directory_uri() . '/css/generales.css', array(), filemtime(get_stylesheet_directory() . '/css/generales.css'), 'all');
     wp_enqueue_style('animate', get_template_directory_uri() . '/css/animate.css', array(), filemtime(get_stylesheet_directory() . '/css/animate.css'), 'all');
 }
@@ -154,21 +156,21 @@ function ccm_post_type_blog() {
     register_post_type( 'blog', $args);
 
 }
-function taxonomias_blog() {  
-    register_taxonomy(  
-      'blog_categorias',  //The name of the taxonomy. Name should be in slug form (must not contain capital letters or spaces). 
+function taxonomias_blog() {
+    register_taxonomy(
+      'blog_categorias',  //The name of the taxonomy. Name should be in slug form (must not contain capital letters or spaces).
       'blog',        //post type name
-        array(  
-            'hierarchical' => true,  
+        array(
+            'hierarchical' => true,
             'label' => 'Categoría',  //Display name
             'query_var' => true,
             'rewrite' => array(
               'slug' => 'slug_blog', // This controls the base slug that will display before each term
-              'with_front' => false // Don't display the category base before 
+              'with_front' => false // Don't display the category base before
             )
-        )  
-    );  
-}  
+        )
+    );
+}
 add_action( 'init', 'taxonomias_blog');
 
 //WEBINAR
@@ -189,9 +191,6 @@ function ccm_post_type_webinar() {
 		'not_found_in_trash' => 'No se han encontrado resultados en la papelera'
     );
 
-<<<<<<< HEAD
-    wp_enqueue_script('custom.js', get_template_directory_uri().'/js/custom.js', array('jquery'), get_stylesheet_directory() . '/js/custom.js', false);
-=======
     $args = array(
     'labels'            => $labels,
     'description'       => 'Información especifica',
@@ -208,21 +207,21 @@ function ccm_post_type_webinar() {
     register_post_type( 'webinar', $args);
 
 }
-function taxonomias_webinar() {  
-    register_taxonomy(  
-      'webinar_categorias',  //The name of the taxonomy. Name should be in slug form (must not contain capital letters or spaces). 
+function taxonomias_webinar() {
+    register_taxonomy(
+      'webinar_categorias',  //The name of the taxonomy. Name should be in slug form (must not contain capital letters or spaces).
       'webinar',        //post type name
-        array(  
-            'hierarchical' => true,  
+        array(
+            'hierarchical' => true,
             'label' => 'Categoría',  //Display name
             'query_var' => true,
             'rewrite' => array(
               'slug' => 'slug_webinar', // This controls the base slug that will display before each term
-              'with_front' => false // Don't display the category base before 
+              'with_front' => false // Don't display the category base before
             )
-        )  
-    );  
-}  
+        )
+    );
+}
 add_action( 'init', 'taxonomias_webinar');
 
 add_action('acf/init', 'my_acf_init_block_types');
@@ -253,23 +252,7 @@ function my_acf_init_block_types() {
             'keywords'          => array( 'videos-carrusel', 'quote' ),
         ));
 
-<<<<<<< HEAD
     }
-=======
->>>>>>> 9a42d25f8be39023a2dca9355c059a992ad33acc
-    // generals
-    wp_enqueue_style('generals', get_template_directory_uri() . '/css/generals.css', array(), '1.1', 'all');
-
-    if (is_front_page()){
-        // wp_enqueue_style('home', get_template_directory_uri() . '/css/home.css', array(), filemtime(get_stylesheet_directory() . '/css/home.css'), 'all');
-        /*
-        wp_enqueue_style('owl.carousel.min', get_template_directory_uri() . '/css/owl.carousel.min.css', array(), '1.1', 'all');
-        wp_enqueue_style('owl.theme.default.min', get_template_directory_uri() . '/css/owl.theme.default.min.css', array(), '1.1', 'all');
-        wp_enqueue_script('owl.carousel.min.js', get_template_directory_uri().'/js/owl.carousel.min.js', array('jquery'), get_stylesheet_directory() . '/js/owl.carousel.min.js', false);
-        */
-    }
-
->>>>>>> ff23a202443885ceb97e00c37f0a3afabebea7c4
 }
 add_post_type_support( 'themes', 'thumbnail' );
 
